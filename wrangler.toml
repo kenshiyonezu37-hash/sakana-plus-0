@@ -1,0 +1,20 @@
+name = "sakana-plus-0"
+main = "src/worker.js"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sakana"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[vars]
+PBKDF2_ITERATIONS = "100000"
+SESSION_DAYS = "30"
+
+# Set secrets with `wrangler secret put INITIAL_ADMIN_USERNAME` and
+# `wrangler secret put INITIAL_ADMIN_PASSWORD`. Never commit these values.

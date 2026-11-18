@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>sakana+</title>
-  <style>body{font-family:sans-serif;margin:3rem}main{max-width:640px;margin:auto}</style>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
+  <header><a href="/" aria-label="sakana+ ホーム">sakana<span>+</span></a><span id="account"></span></header>
   <main>
-    <h1>sakana+</h1>
-    <p>サーバー版への移行準備中です。</p>
+    <section id="auth">
+      <h1>sakana+</h1>
+      <p>みんなで学び、つながる場所。</p>
+      <form id="auth-form">
+        <label>ユーザー名<input name="username" minlength="3" maxlength="24" autocomplete="username" required></label>
+        <label>パスワード<input name="password" type="password" minlength="10" maxlength="128" autocomplete="current-password" required></label>
+        <div class="actions"><button name="action" value="login">ログイン</button><button class="secondary" name="action" value="register">新規登録</button></div>
+      </form>
+      <p id="auth-message" role="status"></p>
+    </section>
+    <section id="social" hidden>
+      <h1>みんなのポスト</h1>
+      <form id="post-form"><label for="post-body">いまどうしてる？</label><textarea id="post-body" maxlength="200" required></textarea><button>ポスト</button></form>
+      <p id="feed-message" role="status"></p>
+      <div id="feed" aria-live="polite"></div>
+    </section>
   </main>
 </body>
 </html>
